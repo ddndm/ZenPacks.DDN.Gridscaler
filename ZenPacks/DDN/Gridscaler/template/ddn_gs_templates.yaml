@@ -1,0 +1,184 @@
+/Storage/DDN/Gridscaler/GSDeviceMetrics:
+    # Osp component level metrics definition
+    description: Performance Template for gathering metrics related to Gridscaler solution
+    targetPythonClass: ZenPacks.DDN.Gridscaler.GridscalerDevice
+
+    datasources:
+        dev_counters:
+            type: Python
+            cycletime: 600
+            #plugin_classname: ZenPacks.DDN.Gridscaler.dsplugin.GsDevPlugin
+            plugin_classname: ZenPacks.DDN.Gridscaler.dsplugin.GsMetricPlugin
+            component: ${here/id}
+            eventKey: /perf/GridscalerDev
+            eventClass: /Perf
+            enabled: True
+            severity: Warning
+
+            datapoints:
+                readDirCount : GAUGE
+                inodeUpdates: GAUGE
+                closes : GAUGE
+                opens: GAUGE
+                reads: GAUGE
+                writes : GAUGE
+                writesThroughput: GAUGE
+                closesThroughput: GAUGE
+                inodeUpdatesThroughput : GAUGE
+                readDirCountThroughput: GAUGE
+                bytesReadThroughput: GAUGE
+                bytesWrittenThroughput: GAUGE
+                readsThroughput: GAUGE
+                opensThroughput: GAUGE
+                bytesWritten: GAUGE
+                bytesRead: GAUGE
+
+    graphs:
+        FilesystemUsage:
+            units: total fs byte access
+            graphpoints:
+                bytesWritten: 
+                    dpName: dev_counters_bytesWritten
+                bytesRead: 
+                    dpName: dev_counters_bytesRead
+
+        FSThroughput:
+            units: bytes per second
+            graphpoints:
+                writesThroughput: 
+                    dpName: dev_counters_writesThroughput
+                bytesReadThroughput: 
+                    dpName: dev_counters_bytesReadThroughput
+                bytesWrittenThroughput: 
+                    dpName: dev_counters_bytesWrittenThroughput
+                readsThroughput: 
+                    dpName: dev_counters_readsThroughput
+
+        MetaOps:
+            units: total number of operations
+            graphpoints:
+                readDirCount : 
+                    dpName: dev_counters_readDirCount
+                inodeUpdates: 
+                    dpName: dev_counters_inodeUpdates
+                closes : 
+                    dpName: dev_counters_closes
+                opens: 
+                    dpName: dev_counters_opens
+                reads: 
+                    dpName: dev_counters_reads
+                writes : 
+                    dpName: dev_counters_writes
+
+        MetaOpsThroughput:
+            units: number of operations per sec
+            graphpoints:
+                closesThroughput: 
+                    dpName: dev_counters_closesThroughput
+                inodeUpdatesThroughput : 
+                    dpName: dev_counters_inodeUpdatesThroughput
+                readDirCountThroughput: 
+                    dpName: dev_counters_readDirCountThroughput
+                opensThroughput: 
+                    dpName: dev_counters_opensThroughput
+
+/Storage/DDN/Gridscaler/GS_FsList:
+    # Osp component level metrics definition
+    description: Performance Template for gathering metrics related to Gridscaler Filesystems
+    targetPythonClass: ZenPacks.DDN.Gridscaler.FsList
+
+    datasources:
+        fs_counters:
+            type: Python
+            cycletime: 600
+            plugin_classname: ZenPacks.DDN.Gridscaler.dsplugin.GsMetricPlugin
+            component: ${here/id}
+            eventKey: /perf/GridscalerFs
+            eventClass: /Perf
+            enabled: True
+            severity: Warning
+
+            datapoints:
+                inuseSpace : GAUGE
+                freeSpace : GAUGE
+                totalSpace: GAUGE
+                inodeUpdatesThroughput : GAUGE
+                opensThroughput: GAUGE
+                closesThroughput : GAUGE
+                readDirCountThroughput: GAUGE
+                readsThroughput: GAUGE
+                writesThroughput: GAUGE
+
+    graphs:
+        FilesystemUsage:
+            units: memory usage in bytes
+            graphpoints:
+                inuseSpace:
+                    dpName: fs_counters_inuseSpace
+                freeSpace:
+                    dpName: fs_counters_freeSpace
+                totalSpace:
+                    dpName: fs_counters_totalSpace
+        IOThroughput:
+            units: bytes per second
+            graphpoints:
+               readsThroughput:
+                   dpName: fs_counters_readsThroughput
+               writesThroughput:
+                   dpName: fs_counters_writesThroughput
+
+        MetaOps:
+            units: number of operations per sec
+            graphpoints:
+                inodeUpdatesThroughput:
+                    dpName: fs_counters_inodeUpdatesThroughput
+                opensThroughput:
+                    dpName: fs_counters_opensThroughput
+                closesThroughput:
+                    dpName: fs_counters_closesThroughput
+                readDirCountThroughput:
+                    dpName: fs_counters_readDirCountThroughput
+
+/Storage/DDN/Gridscaler/GS_NsdServer:
+    description: Performance Template for gathering metrics related to Gridscaler NSD
+    targetPythonClass: ZenPacks.DDN.Gridscaler.NsdNode
+
+    datasources:
+        nsdperf:
+            type : Python
+            cycletime: 600
+            plugin_classname: ZenPacks.DDN.Gridscaler.dsplugin.GsMetricPlugin
+            #plugin_classname: ZenPacks.DDN.Gridscaler.dsplugin.NsdPlugin
+            component: ${here/id}
+            eventKey: /perf/GridscalerNSD
+            eventClass: /Perf
+            enabled: True
+            severity: Warning
+
+            datapoints:
+                closesThroughput : GAUGE
+                inodeUpdatesThroughput : GAUGE
+                opensThroughput : GAUGE
+                readDirCountThroughput : GAUGE
+                readsThroughput: GAUGE
+                writesThroughput: GAUGE
+    graphs:
+        IOThroughput:
+            units: bytes per second
+            graphpoints:
+               readsThroughput:
+                   dpName: nsdperf_readsThroughput
+               writesThroughput:
+                   dpName: nsdperf_writesThroughput
+
+        MetaOps:
+            units: number of operations per sec
+            graphpoints:
+                inodeUpdatesThroughput:
+                    dpName: nsdperf_inodeUpdatesThroughput
+                opensThroughput:
+                    dpName: nsdperf_opensThroughput
+                closesThroughput:
+                    dpName: nsdperf_closesThroughput
+                readDirCountThroughput:
+                    dpName: nsdperf_readDirCountThroughput
