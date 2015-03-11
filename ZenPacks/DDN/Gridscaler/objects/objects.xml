@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <objects>
-<!-- ('', 'zport', 'dmd', 'Devices', 'Storage') -->
-<object id='/zport/dmd/Devices/Storage' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
-<object id='DDN' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
-<object id='Gridscaler' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
+<!-- ('', 'zport', 'dmd', 'Devices', 'Storage', 'DDN', 'Gridscaler') -->
+<object id='/zport/dmd/Devices/Storage/DDN/Gridscaler' module='Products.ZenModel.DeviceClass' class='DeviceClass'>
 <property visible="True" type="lines" id="zDeviceTemplates" >
-[]
+['GSDeviceMetrics']
 </property>
 <property visible="True" type="password" id="zCommandPassword" >
 </property>
@@ -2337,7 +2335,5 @@ AVERAGE
 </tomanycont>
 </object>
 </tomanycont>
-</object>
-</object>
 </object>
 </objects>

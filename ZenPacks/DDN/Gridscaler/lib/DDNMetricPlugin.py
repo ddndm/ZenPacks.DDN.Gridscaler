@@ -312,6 +312,8 @@ class DDNMetricPlugin(PythonDataSourcePlugin):
         You can omit this method if you want the result of either the
         onSuccess or onError method to be used without further processing.
         """
+        self.cmd = []  # oncomplete: Clear the commands list bcoz it leads
+        # error while we run zenpython in background
         return result
 
     def cleanup(self, config):
