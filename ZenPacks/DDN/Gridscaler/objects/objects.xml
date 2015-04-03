@@ -19,6 +19,18 @@ ZenPacks.DDN.Gridscaler.GridscalerDevice
 <property visible="True" type="lines" id="zCollectorPlugins" >
 ['ddn.GridNAS_ModelCIFS', 'ddn.GridNAS_ModelGroup', 'ddn.GridNAS_ModelNFS', 'ddn.GridNAS_ModelShares', 'ddn.GridNAS_ModelUser', 'ddn.GridNAS_ModelVIP', 'ddn.ModelClient', 'ddn.ModelCluster', 'ddn.ModelFs', 'ddn.ModelNSD']
 </property>
+<property visible="True" type="int" id="zCollectorClientTimeout" >
+60
+</property>
+<property visible="True" type="float" id="zCommandCommandTimeout" >
+60.0
+</property>
+<property visible="True" type="float" id="zCommandLoginTimeout" >
+60.0
+</property>
+<property visible="True" type="float" id="zStatusConnectTimeout" >
+60.0
+</property>
 <tomanycont id='rrdTemplates'>
 <object id='GSDeviceMetrics' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
 <property id='zendoc' type='string'>
